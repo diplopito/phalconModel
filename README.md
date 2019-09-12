@@ -7,7 +7,7 @@ There are some issues while saving models in Phalcon v.4.0-beta2.
 
 ## Steps to reproduce
 
-1. Create the test database (Run `demo.sql`)
+1. Create the test database (Run `demo.sql`) and provide db connection details in index.php
 2. Visit the endpoints in the app:
 
 ```
