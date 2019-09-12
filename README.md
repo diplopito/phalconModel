@@ -38,7 +38,7 @@ http://localhost/phalconModel/updateModelWhitelist/Maggie
 
 ```
 
-In all the failed attempts, it seems that Phalcon is trying to create a new record, but refuses since mandatory field "password" is not present.
+save() and update() are not working as expected. In all the failed attempts, it seems that Phalcon is trying to create a new record, but refuses since mandatory field "password" is not present.
 
 
 
