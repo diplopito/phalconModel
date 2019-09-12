@@ -35,18 +35,6 @@ $app->get(
 );
 
 $app->get(
-    "/editModel",
-    function() use ($app) {
-        $post = [
-            'id' => 1,
-            'first_name' => 'Johhny',
-        ];
-
-
-    }
-);
-
-$app->get(
     "/search",
     function () use ($app) {
         $users = $app['db']->query("SELECT id, first_name, last_name FROM users");
