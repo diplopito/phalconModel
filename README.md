@@ -36,6 +36,8 @@ http://localhost/phalconModel/updateModelFindFirst/Maggie
 // Fourth attempt to update, with confidence and whitelisting two fields
 http://localhost/phalconModel/updateModelWhitelist/Maggie
 
+```
+
 In all the failed attempts, it seems that Phalcon is trying to create a new record, but refuses since mandatory field "password" is not present.
 
 
