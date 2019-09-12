@@ -14,5 +14,5 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`first_name`,`last_name`,`password`) values (1,'MaggieMou','Doe','secret');
+insert  into `users`(`id`,`first_name`,`last_name`,`password`) values (1,'John','Doe','secret');
 insert  into `users`(`id`,`first_name`,`last_name`,`password`) values (2,'Jane','Doe','secret');
