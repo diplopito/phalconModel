@@ -50,7 +50,7 @@ $app->get(
     function ($id) use ($app) {
         $users = new Users();
         $user = $users::findFirst($id);
-        echo $user->first_name;  // echo $user->firstName will return empty
+        echo $user->first_name . "<br>";  // echo $user->firstName will return empty
     }
 );
 
