@@ -2,7 +2,7 @@
 
 There are some issues while saving models in Phalcon v.4.0-beta2.
 
-1. Fields have to be called with underscore, not in camelCase;
+1. Fields have to be called with underscore, not in camelCase (in camelCase will return a "field not found")
 2. Models are not working when updating data (haven't tested if there are issues when creating).
 
 ## Steps to reproduce
