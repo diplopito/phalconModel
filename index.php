@@ -80,6 +80,7 @@ $app->get(
         $john->update($post);
         
         $newJohn = Users::findFirst(1);
+        
         echo "New name: " . $newJohn->first_name;                      
     }
 );
@@ -105,7 +106,7 @@ $app->get(
         
         $john = Users::findFirst(1);
         
-        echo "New name: " . $john->first_name;  
+        echo "New name: " . $john->first_name;          
     }
 );
 
@@ -130,8 +131,7 @@ $app->get(
 
         $john = Users::findFirst(1);
         
-        echo "New name: " . $john->first_name;            
-        }
+        echo "New name: " . $john->first_name;         
     }
 );
 
@@ -157,9 +157,7 @@ $app->get(
 
         $newJohn = Users::findFirst(1);
             
-        echo "New name: " . $newJohn->first_name; 
-        
-        }
+        echo "New name: " . $newJohn->first_name;       
     }
 );
 
@@ -190,7 +188,6 @@ $app->get(
         $john = Users::findFirst(1);
         
         echo "New name: " . $john->first_name;   
-
     }
 );
 
@@ -198,9 +195,12 @@ $app->get(
     "/updateRaw/{name}",
     function($name) use ($app) {
         $app['db']->query("UPDATE users SET first_name = '$name' WHERE id = 1");
+        
         $johhnyRaw = Users::findFirst(1);
+        
         echo $johhnyRaw->first_name;
     }
 );
 
 $app->handle($_SERVER["REQUEST_URI"]);
+
