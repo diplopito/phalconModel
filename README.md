@@ -37,7 +37,8 @@ http://localhost/phalconModel/saveFindFirst/Maggie
 // disregarding the update data.
 http://localhost/phalconModel/updateModelFindFirst/Maggie
 
-// Fourth attempt to update, with confidence and whitelisting two fields
+// Fourth attempt to update, with confidence and whitelisting two fields.
+// This test will not even fire notSaved() event
 http://localhost/phalconModel/updateModelWhitelist/Maggie
 
 ```
