@@ -1,8 +1,6 @@
 <?php
 
-use Phalcon\Mvc\Model;
-
-class Users extends Model
+class Users extends BaseModel
 {
     public $id;
 
