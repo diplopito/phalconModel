@@ -20,7 +20,7 @@ http://localhost/phalconModel/show/2
 // The app will update user 1 only
 
 // Raw update that will effectively change the name of John to Johnny
-http://localhost/phalconModel/updateRaw/Johhny
+http://localhost/phalconModel/updateRaw/Johnny
 
 // First attempt to update using model following example in documentation
 http://localhost/phalconModel/saveModel/Maggie
@@ -28,8 +28,12 @@ http://localhost/phalconModel/saveModel/Maggie
 // Second attempt to update, now with confidence
 http://localhost/phalconModel/updateModel/Maggie
 
-// Third attemp to update, using the findFirst technique that used to work in v3. 
-// reports that the record was saved. However, it wasn't. MySQL log shows that Phalcon re-saved the record that it found first, 
+// Third attempt to update, using the findFirst technique that used to work in v3: 
+// visit the endpoint to try it (only in Phalcon 3.x):
+http://localhost/phalconModel/saveFindFirst/Maggie
+
+// Similar method adapted to v4 eports that the record was saved. 
+// However, it wasn't. MySQL log shows that Phalcon re-saved the record that it found first, 
 // disregarding the update data.
 http://localhost/phalconModel/updateModelFindFirst/Maggie
 
@@ -38,13 +42,5 @@ http://localhost/phalconModel/updateModelWhitelist/Maggie
 
 ```
 
-save() and update() are not working as expected. In all the failed attempts, it seems that Phalcon is trying to create a new record, but refuses since mandatory field "password" is not present.
-
-
-
-
-
-
-
-
+save() and update() are not working as expected. In all the failed attempts, it seems that Phalcon is trying to create a new record, but refuses since mandatory field "password" is not present. Viewing the sql logs, the issue is that `id` is not being recognized --which seems to be a common issue with v3.
 
