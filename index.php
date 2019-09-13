@@ -59,7 +59,6 @@ $app->get(
 $app->get(
     "/show/{id:[0-9]}",
     function ($id) use ($app) {
-        $users = new Users();
         $user = $users::findFirst($id);
         echo $user->first_name . "<br>";  // echo $user->firstName will return empty
     }
@@ -77,18 +76,11 @@ $app->get(
             'id' => 1,
             'first_name' => $name
         ];
-
-        if ($john->update($post) === false) {
-            echo "John doesn't want to update his name! <br>";
-            $messages = $john->getMessages();
-
-            foreach ($messages as $message) {
-                echo "<br>" . $message;
-            }
-        } else {
-            $john = Users::findFirst(1);
-            echo "New name: " . $john->first_name;            
-        }                    
+        
+        $john->update($post);
+        
+        $newJohn = Users::findFirst(1);
+        echo "New name: " . $newJohn->first_name;                      
     }
 );
 
@@ -108,18 +100,12 @@ $app->get(
         $user = new Users();
 
         $user->assign($post);
-
-        if ($user->save() === false) {
-            echo "John doesn't like his new name";
-            $messages = $user->getMessages();
-
-            foreach ($messages as $message) {
-                echo "<br>" . $message;
-            }
-        } else {
-            $john = Users::findFirst(1);
-            echo "New name: " . $john->first_name;            
-        }
+        
+        $user->save();
+        
+        $john = Users::findFirst(1);
+        
+        echo "New name: " . $john->first_name;  
     }
 );
 
@@ -139,17 +125,12 @@ $app->get(
         $user = new Users();
 
         $user->assign($post);
+        
+        $user->update();
 
-        if ($user->update() === false) {
-            echo "John doesn't want to update his name! <br>";
-            $messages = $user->getMessages();
-
-            foreach ($messages as $message) {
-                echo "<br>" . $message;
-            }
-        } else {
-            $john = Users::findFirst(1);
-            echo "New name: " . $john->first_name;            
+        $john = Users::findFirst(1);
+        
+        echo "New name: " . $john->first_name;            
         }
     }
 );
@@ -171,17 +152,13 @@ $app->get(
                 'last_name'
             ]
          );
+        
+        $john->update();
 
-         if ($john->update() === false) {
-            echo "John doesn't want to update his name! <br>";
-            $messages = $john->getMessages();
-
-            foreach ($messages as $message) {
-                echo "<br>" . $message;
-            }
-        } else {
-            $john = Users::findFirst(1);
-            echo "New name: " . $john->first_name;            
+        $newJohn = Users::findFirst(1);
+            
+        echo "New name: " . $newJohn->first_name; 
+        
         }
     }
 );
@@ -207,18 +184,12 @@ $app->get(
                 'last_name'
             ]
          );
-
-         if ($user->update() === false) {
-            echo "John doesn't want to update his name! <br>";
-            $messages = $user->getMessages();
-
-            foreach ($messages as $message) {
-                echo "<br>" . $message;
-            }
-        } else {
-            $john = Users::findFirst(1);
-            echo "New name: " . $john->first_name;            
-        }
+        
+        $user->update();
+        
+        $john = Users::findFirst(1);
+        
+        echo "New name: " . $john->first_name;   
 
     }
 );
