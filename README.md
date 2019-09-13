@@ -32,16 +32,16 @@ http://localhost/phalconModel/updateModel/Maggie
 // visit the endpoint to try it (only in Phalcon 3.x):
 http://localhost/phalconModel/saveFindFirst/Maggie
 
-// Similar method adapted to v4 eports that the record was saved. 
+// Similar method adapted to v4 reports that the record was saved. 
 // However, it wasn't. MySQL log shows that Phalcon re-saved the record that it found first, 
 // disregarding the update data.
 http://localhost/phalconModel/updateModelFindFirst/Maggie
 
 // Fourth attempt to update, with confidence and whitelisting two fields.
-// This test will not even fire notSaved() event
+// Fails and this test will not even fire notSaved() event
 http://localhost/phalconModel/updateModelWhitelist/Maggie
 
 ```
 
-save() and update() are not working as expected. In all the failed attempts, it seems that Phalcon is trying to create a new record, but refuses since mandatory field "password" is not present. Viewing the sql logs, the issue is that `id` is not being recognized --which seems to be a common issue with v3.
+save() and update() are not working as expected. In all the failed attempts (except when using findFirst as in v3), it seems that Phalcon is trying to create a new record, but refuses since mandatory field "password" is not present. Viewing the sql logs, the issue could be that `id` is not being recognized --which might explain why similar cases fail in v3, forcing to use findFirst before update/save.
 
