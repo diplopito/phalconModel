@@ -2,6 +2,8 @@
 
 use Phalcon\Mvc\Micro;
 use Phalcon\Db\Adapter\Pdo\Mysql as MysqlAdapter;
+use Phalcon\Events\Event;
+use Phalcon\Events\Manager as EventsManager;
 
 $loader = new \Phalcon\Loader();
 
