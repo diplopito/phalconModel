@@ -9,4 +9,10 @@ class Users extends BaseModel
     public $lastName;
 
     public $password;
+    
+    public function initialize()
+    {
+        /* Makes no difference either */
+        //$this->useDynamicUpdate(true);
+    }
 }
