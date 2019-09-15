@@ -135,6 +135,7 @@ $app->get(
             ]
         );
 
+        /* $user->save() will fail since password is mandatory but is not whitelisted */
         $user->update();
 
         $userUpdated = Users::findFirst($post['id']);
