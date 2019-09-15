@@ -113,6 +113,35 @@ $app->get(
 );
 
 $app->get(
+    "/phalconmodel/updateWithConfidence/{name}",
+    function ($name) use ($app) {
+        $user = Users::findFirst(1);
+        echo "Current name: " . $user->first_name . 
+        " will be changed to $name<br>";
+
+        $post = [
+            'id' => 1,
+            'first_name' => $name
+        ];
+
+        $user->assign(
+            $post,
+            null,
+            [
+                'first_name',
+                'last_name'
+            ]
+        );
+
+        $user->update();
+
+        $userUpdated = Users::findFirst(1);
+        echo "New name: " . $userUpdated->first_name;
+
+    }
+);
+
+$app->get(
     "/updateModel/{name}",
     function($name) use ($app) {
 
