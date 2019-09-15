@@ -113,7 +113,7 @@ $app->get(
 );
 
 $app->get(
-    "/phalconmodel/updateWithConfidence/{name}",
+    "/updateWithConfidence/{name}",
     function ($name) use ($app) {
         $user = Users::findFirst(1);
         echo "Current name: " . $user->first_name . 
