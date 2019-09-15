@@ -115,14 +115,15 @@ $app->get(
 $app->get(
     "/updateWithConfidence/{name}",
     function ($name) use ($app) {
-        $user = Users::findFirst(1);
-        echo "Current name: " . $user->first_name . 
-        " will be changed to $name<br>";
-
+        
         $post = [
             'id' => 1,
             'first_name' => $name
         ];
+
+        $user = Users::findFirst($post['id']);
+        echo "Current name: " . $user->first_name . 
+        " will be changed to $name<br>";
 
         $user->assign(
             $post,
@@ -135,7 +136,7 @@ $app->get(
 
         $user->update();
 
-        $userUpdated = Users::findFirst(1);
+        $userUpdated = Users::findFirst($post['id']);
         echo "New name: " . $userUpdated->first_name;
 
     }
