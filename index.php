@@ -118,7 +118,8 @@ $app->get(
         
         $post = [
             'id' => 1,
-            'first_name' => $name
+            'first_name' => $name,
+            'password' => 'newpwd'
         ];
 
         $user = Users::findFirst($post['id']);
