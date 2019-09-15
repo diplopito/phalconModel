@@ -119,12 +119,13 @@ $app->get(
         $post = [
             'id' => 1,
             'first_name' => $name,
-            'password' => 'newpwd'
+            'password' => 'not secret anymore'
         ];
 
         $user = Users::findFirst($post['id']);
         echo "Current name: " . $user->first_name . 
-        " will be changed to $name<br>";
+        " will be changed to $name<br>" .
+        "Password is {$user->password}!<br>"; 
 
         $user->assign(
             $post,
@@ -139,8 +140,8 @@ $app->get(
         $user->update();
 
         $userUpdated = Users::findFirst($post['id']);
-        echo "New name: " . $userUpdated->first_name;
-
+        echo "New name: " . $userUpdated->first_name .
+        "<br>Password is {$userUpdated->password}!<br>"; 
     }
 );
 
