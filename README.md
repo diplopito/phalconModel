@@ -41,6 +41,9 @@ http://localhost/phalconModel/updateModelFindFirst/Maggie
 // Fails and this test will not even fire notSaved() event
 http://localhost/phalconModel/updateModelWhitelist/Maggie
 
+// Fifth attempt, working example with second parameter `null` in assign
+http://localhost/phalconmodel/updateWithConfidence/Maggie
+
 ```
 
 save() and update() are not working as expected. In all the failed attempts (except when using findFirst as in v3), it seems that Phalcon is trying to create a new record, but refuses since mandatory field "password" is not present. Viewing the sql logs, the issue could be that `id` is not being recognized --which might explain why similar cases fail in v3, forcing to use findFirst before update/save.
